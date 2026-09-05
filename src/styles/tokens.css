@@ -1,0 +1,80 @@
+/* src/styles/tokens.css
+   Lifted verbatim from the design reference. Import once in src/layouts/Base.astro.
+   Keep the values exactly; they are the design.
+
+   Two things to add in the Astro project that the prototype did not need:
+   - a @font-face or <link> for Fira Sans / Geist Mono / IBM Plex Sans Arabic
+   - the .visually-hidden utility at the bottom
+*/
+
+:root{color-scheme:dark;--hue:125;
+--bg:oklch(0.163 0.012 var(--hue));--bg2:oklch(0.205 0.014 var(--hue));--bg3:oklch(0.262 0.016 var(--hue));
+--fg:oklch(0.965 0.006 var(--hue));--fg2:oklch(0.795 0.009 var(--hue));--fg3:oklch(0.63 0.012 var(--hue));
+--line:oklch(0.95 0.02 var(--hue) / 0.14);--line2:oklch(0.95 0.02 var(--hue) / 0.07);--dot:oklch(0.95 0.02 var(--hue) / 0.16);--dot2:oklch(0.95 0.02 var(--hue) / 0.08);
+--accent:oklch(0.855 0.185 var(--hue));--accent-ink:oklch(0.19 0.05 var(--hue));--ok:oklch(0.8 0.14 152);
+--glow:oklch(0.855 0.185 var(--hue) / 0.16);--glow2:oklch(0.855 0.185 var(--hue) / 0.34);
+--shadow:oklch(0.05 0.02 var(--hue) / 0.7);
+--grad:linear-gradient(115deg, oklch(0.9 0.15 calc(var(--hue) - 22)) 0%, oklch(0.855 0.185 var(--hue)) 48%, oklch(0.79 0.2 calc(var(--hue) + 26)) 100%);
+--grad-line:linear-gradient(150deg, oklch(0.86 0.18 calc(var(--hue) - 22) / 0.5) 0%, oklch(0.95 0.03 var(--hue) / 0.1) 42%, oklch(0.82 0.19 calc(var(--hue) + 26) / 0.34) 100%);--grad-line-hi:linear-gradient(150deg, oklch(0.86 0.18 calc(var(--hue) - 22) / 0.92) 0%, oklch(0.95 0.03 var(--hue) / 0.2) 42%, oklch(0.82 0.19 calc(var(--hue) + 26) / 0.66) 100%)}
+@media (prefers-color-scheme: light){:root:not([data-theme]){color-scheme:light;
+--bg:oklch(0.982 0.004 var(--hue));--bg2:oklch(1 0 0);--bg3:oklch(0.94 0.008 var(--hue));
+--fg:oklch(0.21 0.016 var(--hue));--fg2:oklch(0.42 0.016 var(--hue));--fg3:oklch(0.565 0.016 var(--hue));
+--line:oklch(0.21 0.02 var(--hue) / 0.15);--line2:oklch(0.21 0.02 var(--hue) / 0.07);--dot:oklch(0.21 0.03 var(--hue) / 0.34);--dot2:oklch(0.21 0.03 var(--hue) / 0.18);
+--accent:oklch(0.5 0.145 var(--hue));--accent-ink:oklch(0.99 0.01 var(--hue));--ok:oklch(0.52 0.13 152);
+--glow:oklch(0.5 0.145 var(--hue) / 0.1);--glow2:oklch(0.5 0.145 var(--hue) / 0.22);
+--shadow:oklch(0.35 0.03 var(--hue) / 0.16);
+--grad:linear-gradient(115deg, oklch(0.5 0.13 calc(var(--hue) - 22)) 0%, oklch(0.46 0.145 var(--hue)) 48%, oklch(0.4 0.15 calc(var(--hue) + 26)) 100%);
+--grad-line:linear-gradient(150deg, oklch(0.55 0.15 calc(var(--hue) - 22) / 0.4) 0%, oklch(0.3 0.03 var(--hue) / 0.09) 42%, oklch(0.5 0.15 calc(var(--hue) + 26) / 0.3) 100%);--grad-line-hi:linear-gradient(150deg, oklch(0.55 0.15 calc(var(--hue) - 22) / 0.8) 0%, oklch(0.3 0.03 var(--hue) / 0.18) 42%, oklch(0.5 0.15 calc(var(--hue) + 26) / 0.6) 100%)}}
+:root[data-theme="light"]{color-scheme:light;
+--bg:oklch(0.982 0.004 var(--hue));--bg2:oklch(1 0 0);--bg3:oklch(0.94 0.008 var(--hue));
+--fg:oklch(0.21 0.016 var(--hue));--fg2:oklch(0.42 0.016 var(--hue));--fg3:oklch(0.565 0.016 var(--hue));
+--line:oklch(0.21 0.02 var(--hue) / 0.15);--line2:oklch(0.21 0.02 var(--hue) / 0.07);--dot:oklch(0.21 0.03 var(--hue) / 0.34);--dot2:oklch(0.21 0.03 var(--hue) / 0.18);
+--accent:oklch(0.5 0.145 var(--hue));--accent-ink:oklch(0.99 0.01 var(--hue));--ok:oklch(0.52 0.13 152);
+--glow:oklch(0.5 0.145 var(--hue) / 0.1);--glow2:oklch(0.5 0.145 var(--hue) / 0.22);
+--shadow:oklch(0.35 0.03 var(--hue) / 0.16);
+--grad:linear-gradient(115deg, oklch(0.5 0.13 calc(var(--hue) - 22)) 0%, oklch(0.46 0.145 var(--hue)) 48%, oklch(0.4 0.15 calc(var(--hue) + 26)) 100%);
+--grad-line:linear-gradient(150deg, oklch(0.55 0.15 calc(var(--hue) - 22) / 0.4) 0%, oklch(0.3 0.03 var(--hue) / 0.09) 42%, oklch(0.5 0.15 calc(var(--hue) + 26) / 0.3) 100%);--grad-line-hi:linear-gradient(150deg, oklch(0.55 0.15 calc(var(--hue) - 22) / 0.8) 0%, oklch(0.3 0.03 var(--hue) / 0.18) 42%, oklch(0.5 0.15 calc(var(--hue) + 26) / 0.6) 100%)}
+/* shape baseline: every bevel is a multiple of one unit; --cap is the only capsule value */
+:root{--cut-unit:5px;
+--cut:calc(4 * var(--cut-unit)) 0 calc(4 * var(--cut-unit)) 0;
+--cut-in:calc(3 * var(--cut-unit)) 0 calc(3 * var(--cut-unit)) 0;
+--cut-s:calc(2 * var(--cut-unit)) 0 calc(2 * var(--cut-unit)) 0;
+--cut-xs:var(--cut-unit) 0 var(--cut-unit) 0;
+--cap:999px;
+/* control heights: one unit, three levels. every button/input picks a level, never a raw px */
+--ctl-unit:8px;
+--ctl-s:calc(5 * var(--ctl-unit));
+--ctl-m:calc(6 * var(--ctl-unit));
+--ctl-l:calc(7 * var(--ctl-unit));
+/* press: one scale + one duration for every control on the page */
+--press:0.97;--press-t:.12s}
+@media (prefers-reduced-motion: no-preference){html{scroll-behavior:smooth}}
+body{margin:0;background:var(--bg);color:var(--fg);font-family:'Fira Sans','IBM Plex Sans Arabic',system-ui,sans-serif;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;overflow-x:clip}
+a{color:var(--accent);text-underline-offset:3px}a:hover{color:var(--fg)}
+::selection{background:var(--accent);color:var(--accent-ink)}
+::placeholder{color:var(--fg3);opacity:1}
+:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+dialog::backdrop{background:oklch(0.12 0.02 125 / 0.5);backdrop-filter:blur(6px);animation:fade .35s ease both}
+::view-transition-old(root),::view-transition-new(root){animation-duration:.45s}
+@keyframes settle{from{opacity:0;transform:translateY(30px) scale(0.985);filter:blur(7px)}to{opacity:1;transform:none;filter:blur(0)}}
+@keyframes lift{from{transform:translateY(112%)}to{transform:translateY(0)}}
+@keyframes fade{from{opacity:0}to{opacity:1}}
+@keyframes rise{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
+@keyframes lineIn{from{scale:0 1}to{scale:1 1}}
+@keyframes lineY{from{scale:1 0}to{scale:1 1}}
+@keyframes halo{0%{transform:translate(-4%,2%) scale(1)}100%{transform:translate(6%,-5%) scale(1.16)}}
+@keyframes drift{from{background-position:0 0,0 0}to{background-position:120px -120px,60px -60px}}
+@keyframes pulseDot{0%,100%{box-shadow:0 0 0 0 var(--glow2)}70%{box-shadow:0 0 0 9px transparent}}
+@keyframes spin{to{rotate:360deg}}
+@keyframes swapA{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+@keyframes swapB{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+@keyframes growbar{from{scale:0 1}to{scale:1 1}}
+@keyframes expNow{0%{box-shadow:0 0 0 5px var(--bg),0 0 0 5px var(--glow2)}70%{box-shadow:0 0 0 5px var(--bg),0 0 0 17px transparent}100%{box-shadow:0 0 0 5px var(--bg),0 0 0 17px transparent}}
+@media (prefers-reduced-motion: reduce){*,*::before,*::after{animation-duration:.01ms !important;animation-iteration-count:1 !important;transition-duration:.01ms !important;animation-timeline:auto !important}}
+
+/* Screen-reader-only text. Used for status announcements and any label
+   that must exist for assistive tech but not on screen. */
+.visually-hidden{
+  position:absolute; width:1px; height:1px; padding:0; margin:-1px;
+  overflow:hidden; clip-path:inset(50%); white-space:nowrap; border:0;
+}
