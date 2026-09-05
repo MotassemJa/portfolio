@@ -5,6 +5,13 @@
    Two things to add in the Astro project that the prototype did not need:
    - a @font-face or <link> for Fira Sans / Geist Mono / IBM Plex Sans Arabic
    - the .visually-hidden utility at the bottom
+
+   ONE DELIBERATE VALUE CHANGE from the design reference:
+   light-theme --fg3 is 0.55, not 0.565. At 0.565 it measures 4.30:1 against
+   --bg (4.36 at the most favourable hue) - below the 4.5:1 the accessibility
+   contract requires for the 11.5-13px metadata it is used for, and axe flagged
+   34 occurrences. 0.55 measures 4.58:1 at the worst hue across the full 0-360
+   range. Dark theme was already fine at 5.50:1 and is untouched.
 */
 
 :root{color-scheme:dark;--hue:125;
@@ -18,7 +25,7 @@
 --grad-line:linear-gradient(150deg, oklch(0.86 0.18 calc(var(--hue) - 22) / 0.5) 0%, oklch(0.95 0.03 var(--hue) / 0.1) 42%, oklch(0.82 0.19 calc(var(--hue) + 26) / 0.34) 100%);--grad-line-hi:linear-gradient(150deg, oklch(0.86 0.18 calc(var(--hue) - 22) / 0.92) 0%, oklch(0.95 0.03 var(--hue) / 0.2) 42%, oklch(0.82 0.19 calc(var(--hue) + 26) / 0.66) 100%)}
 @media (prefers-color-scheme: light){:root:not([data-theme]){color-scheme:light;
 --bg:oklch(0.982 0.004 var(--hue));--bg2:oklch(1 0 0);--bg3:oklch(0.94 0.008 var(--hue));
---fg:oklch(0.21 0.016 var(--hue));--fg2:oklch(0.42 0.016 var(--hue));--fg3:oklch(0.565 0.016 var(--hue));
+--fg:oklch(0.21 0.016 var(--hue));--fg2:oklch(0.42 0.016 var(--hue));--fg3:oklch(0.55 0.016 var(--hue));
 --line:oklch(0.21 0.02 var(--hue) / 0.15);--line2:oklch(0.21 0.02 var(--hue) / 0.07);--dot:oklch(0.21 0.03 var(--hue) / 0.34);--dot2:oklch(0.21 0.03 var(--hue) / 0.18);
 --accent:oklch(0.5 0.145 var(--hue));--accent-ink:oklch(0.99 0.01 var(--hue));--ok:oklch(0.52 0.13 152);
 --glow:oklch(0.5 0.145 var(--hue) / 0.1);--glow2:oklch(0.5 0.145 var(--hue) / 0.22);
@@ -27,7 +34,7 @@
 --grad-line:linear-gradient(150deg, oklch(0.55 0.15 calc(var(--hue) - 22) / 0.4) 0%, oklch(0.3 0.03 var(--hue) / 0.09) 42%, oklch(0.5 0.15 calc(var(--hue) + 26) / 0.3) 100%);--grad-line-hi:linear-gradient(150deg, oklch(0.55 0.15 calc(var(--hue) - 22) / 0.8) 0%, oklch(0.3 0.03 var(--hue) / 0.18) 42%, oklch(0.5 0.15 calc(var(--hue) + 26) / 0.6) 100%)}}
 :root[data-theme="light"]{color-scheme:light;
 --bg:oklch(0.982 0.004 var(--hue));--bg2:oklch(1 0 0);--bg3:oklch(0.94 0.008 var(--hue));
---fg:oklch(0.21 0.016 var(--hue));--fg2:oklch(0.42 0.016 var(--hue));--fg3:oklch(0.565 0.016 var(--hue));
+--fg:oklch(0.21 0.016 var(--hue));--fg2:oklch(0.42 0.016 var(--hue));--fg3:oklch(0.55 0.016 var(--hue));
 --line:oklch(0.21 0.02 var(--hue) / 0.15);--line2:oklch(0.21 0.02 var(--hue) / 0.07);--dot:oklch(0.21 0.03 var(--hue) / 0.34);--dot2:oklch(0.21 0.03 var(--hue) / 0.18);
 --accent:oklch(0.5 0.145 var(--hue));--accent-ink:oklch(0.99 0.01 var(--hue));--ok:oklch(0.52 0.13 152);
 --glow:oklch(0.5 0.145 var(--hue) / 0.1);--glow2:oklch(0.5 0.145 var(--hue) / 0.22);

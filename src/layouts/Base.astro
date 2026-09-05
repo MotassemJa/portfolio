@@ -1,0 +1,88 @@
+---
+import '../styles/tokens.css';
+import '../styles/app.css';
+import { withBase } from '../lib/paths';
+import T from '../components/T.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import CommandPalette from '../islands/CommandPalette.tsx';
+import ThemeLab from '../islands/ThemeLab.tsx';
+import ScrollSpy from '../islands/ScrollSpy.tsx';
+import PointerFX from '../islands/PointerFX.tsx';
+import { pick } from '../i18n';
+
+const skip = pick((d) => d.skip);
+
+const title = 'Motassem Jalal Aldeen - Senior Software Engineer';
+const description =
+  'Portfolio of Motassem Jalal Aldeen, Senior Software Engineer - design systems, accessibility, CI/CD.';
+const canonical = 'https://MotassemJa.github.io/portfolio';
+const fonts =
+  'https://fonts.googleapis.com/css2?family=Geist+Mono:wght@400;500&family=IBM+Plex+Sans+Arabic:wght@400;500;600&family=Fira+Sans:wght@400;500;600&display=swap';
+---
+
+<!doctype html>
+<!-- lang/dir default to the EN/LTR render; the inline script below corrects them
+     before first paint when a visitor has a stored preference. -->
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonical} />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta name="generator" content={Astro.generator} />
+    <link rel="icon" type="image/svg+xml" href={withBase('favicon.svg')} />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous" />
+    <link rel="stylesheet" href={fonts} />
+
+    <!-- Blocking on purpose. Without this the page paints the wrong theme, the
+         wrong language and the default hue before React ever loads. Mirrors
+         islands/store.ts; keep the two in step. -->
+    <script is:inline>
+      (function () {
+        var d = document.documentElement;
+        var s = {};
+        try {
+          s = JSON.parse(localStorage.getItem('mja.prefs.v2')) || {};
+        } catch (e) {}
+        var lang = s.lang === 'de' || s.lang === 'ar' ? s.lang : 'en';
+        var theme =
+          s.themeTouched && (s.theme === 'light' || s.theme === 'dark')
+            ? s.theme
+            : matchMedia('(prefers-color-scheme: light)').matches
+              ? 'light'
+              : 'dark';
+        d.lang = lang;
+        d.dir = lang === 'ar' ? 'rtl' : 'ltr';
+        d.dataset.theme = theme;
+        d.style.setProperty('--hue', s.hueTouched && typeof s.hue === 'number' ? s.hue : 125);
+        d.style.setProperty('--amb', 'halo');
+      })();
+    </script>
+  </head>
+  <body>
+    <div id="top">
+      <!-- First focusable element on the page. -->
+      <a class="skip" href="#main"><T of={skip} /></a>
+      <div class="progress" aria-hidden="true"></div>
+
+      <Header />
+      <main id="main">
+        <slot />
+      </main>
+      <Footer />
+
+      <CommandPalette client:idle />
+      <ThemeLab client:idle />
+      <ScrollSpy client:idle />
+      <PointerFX client:idle />
+    </div>
+  </body>
+</html>

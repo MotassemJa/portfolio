@@ -1,0 +1,67 @@
+---
+import { getCollection } from 'astro:content';
+import T from './T.astro';
+import SectionHeader from './SectionHeader.astro';
+import { pick } from '../i18n';
+import { WORK_MODE } from '../data/site';
+
+const title = pick((d) => d.workTitle);
+const internal = pick((d) => d.internal);
+
+const projects = (await getCollection('projects')).sort((a, b) => a.data.order - b.data.order);
+const sticky = WORK_MODE === 'sticky';
+---
+
+<section id="work" class="section" aria-labelledby="h-work">
+  <div class="wrap">
+    <SectionHeader id="h-work" title={title} />
+
+    <div class="work-row">
+      {sticky && (
+        <aside class="work-index">
+          <div class="rail">
+            <span class="rail-line" aria-hidden="true"></span>
+            <span class="rail-marker" aria-hidden="true" data-rail-marker></span>
+            {projects.map((p, i) => (
+              <a
+                class={`idx-link${i === 0 ? ' on' : ''}`}
+                href={`#p-${p.data.id}`}
+                data-proj-link={p.data.id}
+              >
+                <span class="num mono">{String(i + 1).padStart(2, '0')}</span>
+                <span class="title"><T of={p.data.title} /></span>
+              </a>
+            ))}
+          </div>
+          <p class="work-note"><T of={internal} /></p>
+        </aside>
+      )}
+
+      <div class="proj-list">
+        {projects.map((p, i) => (
+          <article
+            class="card proj-card settle"
+            id={`p-${p.data.id}`}
+            data-proj={p.data.id}
+            data-spot
+            aria-labelledby={`h-p-${p.data.id}`}
+          >
+            <div class="card-spot" aria-hidden="true"></div>
+            <div>
+              <div class="proj-top mono" dir="ltr">
+                <span class="num">{String(i + 1).padStart(2, '0')}</span>
+                <span>{p.data.year}</span>
+              </div>
+              <h3 id={`h-p-${p.data.id}`}><T of={p.data.title} /></h3>
+              <p class="proj-meta mono" dir="ltr"><T of={p.data.meta} /></p>
+              <p class="proj-desc"><T of={p.data.desc} /></p>
+              <div class="proj-status">
+                <span class="status-pill mono"><T of={p.data.status} /></span>
+              </div>
+            </div>
+          </article>
+        ))}
+      </div>
+    </div>
+  </div>
+</section>

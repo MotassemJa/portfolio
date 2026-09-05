@@ -1,1 +1,196 @@
-[]
+[
+  {
+    "id": "cegeka",
+    "order": 0,
+    "kind": "work",
+    "current": true,
+    "company": {
+      "en": "Cegeka Deutschland GmbH",
+      "de": "Cegeka Deutschland GmbH",
+      "ar": "Cegeka Deutschland GmbH"
+    },
+    "role": {
+      "en": "Senior Frontend Developer",
+      "de": "Senior Frontend Developer",
+      "ar": "مطوّر واجهات أمامية أوّل"
+    },
+    "period": {
+      "en": "12/2022 - present",
+      "de": "12/2022 - heute",
+      "ar": "12/2022 - حتى الآن"
+    },
+    "points": {
+      "en": [
+        "Design system for the web with a 15-person team - accessible StencilJS components.",
+        "Feedback platform (Angular + NestJS) shipped zero to production; CI/CD cut deploys from 35 to under 15 minutes."
+      ],
+      "de": [
+        "Design-System fürs Web mit einem 15-köpfigen Team - barrierefreie StencilJS-Komponenten.",
+        "Feedback-Plattform (Angular + NestJS) von null bis Produktion; CI/CD senkte Deploys von 35 auf unter 15 Minuten."
+      ],
+      "ar": [
+        "نظام تصميم للويب مع فريق من 15 مطوّرًا - مكوّنات StencilJS ميسّرة.",
+        "منصة ملاحظات (Angular + NestJS) من الصفر إلى الإنتاج؛ وCI/CD خفّض النشر من 35 إلى أقل من 15 دقيقة."
+      ]
+    },
+    "tags": {
+      "en": "Stencil · Angular · NestJS · Docker · K8s",
+      "de": "Stencil · Angular · NestJS · Docker · K8s",
+      "ar": "Stencil · Angular · NestJS · Docker · K8s"
+    }
+  },
+  {
+    "id": "dser",
+    "order": 1,
+    "kind": "work",
+    "current": false,
+    "company": {
+      "en": "DSER GmbH",
+      "de": "DSER GmbH",
+      "ar": "DSER GmbH"
+    },
+    "role": {
+      "en": "Senior Frontend Developer",
+      "de": "Senior Frontend Developer",
+      "ar": "مطوّر واجهات أمامية أوّل"
+    },
+    "period": {
+      "en": "07/2022 - 11/2022",
+      "de": "07/2022 - 11/2022",
+      "ar": "07/2022 - 11/2022"
+    },
+    "points": {
+      "en": [
+        "SaaS platform for private banking and wealth management.",
+        "Angular 14 in an Nx monorepo - scalable, tested, maintainable."
+      ],
+      "de": [
+        "SaaS-Plattform für Private Banking und Wealth Management.",
+        "Angular 14 im Nx-Monorepo - skalierbar, getestet, wartbar."
+      ],
+      "ar": [
+        "منصة SaaS للخدمات المصرفية الخاصة وإدارة الثروات.",
+        "Angular 14 داخل Nx monorepo - قابل للتوسع ومُختبَر وسهل الصيانة."
+      ]
+    },
+    "tags": {
+      "en": "Angular · Nx · Unit testing",
+      "de": "Angular · Nx · Unit-Tests",
+      "ar": "Angular · Nx · اختبارات"
+    }
+  },
+  {
+    "id": "telekom-mms-advanced",
+    "order": 2,
+    "kind": "work",
+    "current": false,
+    "company": {
+      "en": "Telekom MMS",
+      "de": "Telekom MMS",
+      "ar": "Telekom MMS"
+    },
+    "role": {
+      "en": "Advanced Software Engineer",
+      "de": "Advanced Software Engineer",
+      "ar": "مهندس برمجيات متقدم"
+    },
+    "period": {
+      "en": "05/2017 - 06/2022",
+      "de": "05/2017 - 06/2022",
+      "ar": "05/2017 - 06/2022"
+    },
+    "points": {
+      "en": [
+        "Architected and built multiple web apps; reusable Angular component libraries.",
+        "Led Scrum practices; built a Kotlin/Java access-control Android app."
+      ],
+      "de": [
+        "Architektur und Umsetzung mehrerer Web-Apps; wiederverwendbare Angular-Komponentenbibliotheken.",
+        "Scrum-Praktiken vorangetrieben; Kotlin/Java-App für digitale Zutrittskontrolle gebaut."
+      ],
+      "ar": [
+        "تصميم وبناء عدة تطبيقات ويب؛ ومكتبات مكوّنات Angular قابلة لإعادة الاستخدام.",
+        "قيادة ممارسات Scrum؛ وبناء تطبيق أندرويد للتحكم بالدخول بـ Kotlin/Java."
+      ]
+    },
+    "tags": {
+      "en": "Angular · TypeScript · Kotlin",
+      "de": "Angular · TypeScript · Kotlin",
+      "ar": "Angular · TypeScript · Kotlin"
+    }
+  },
+  {
+    "id": "telekom-mms-intern",
+    "order": 3,
+    "kind": "internship",
+    "current": false,
+    "company": {
+      "en": "Telekom MMS",
+      "de": "Telekom MMS",
+      "ar": "Telekom MMS"
+    },
+    "role": {
+      "en": "Software Engineer Intern",
+      "de": "Software Engineer Praktikant",
+      "ar": "متدرب هندسة برمجيات"
+    },
+    "period": {
+      "en": "08/2016 - 02/2017",
+      "de": "08/2016 - 02/2017",
+      "ar": "08/2016 - 02/2017"
+    },
+    "points": {
+      "en": [
+        "Selenium test automation; Android app maintenance across projects."
+      ],
+      "de": [
+        "Selenium-Testautomatisierung; Wartung von Android-Apps in mehreren Projekten."
+      ],
+      "ar": [
+        "أتمتة الاختبارات بـ Selenium؛ وصيانة تطبيقات أندرويد في عدة مشاريع."
+      ]
+    },
+    "tags": {
+      "en": "Selenium · Android",
+      "de": "Selenium · Android",
+      "ar": "Selenium · Android"
+    }
+  },
+  {
+    "id": "gju",
+    "order": 4,
+    "kind": "education",
+    "current": false,
+    "company": {
+      "en": "German Jordanian University",
+      "de": "German Jordanian University",
+      "ar": "الجامعة الألمانية الأردنية"
+    },
+    "role": {
+      "en": "B.Sc. Computer Science",
+      "de": "B.Sc. Informatik",
+      "ar": "بكالوريوس علوم الحاسوب"
+    },
+    "period": {
+      "en": "09/2013 - 04/2017",
+      "de": "09/2013 - 04/2017",
+      "ar": "09/2013 - 04/2017"
+    },
+    "points": {
+      "en": [
+        "Graduated with a focus on software engineering."
+      ],
+      "de": [
+        "Abschluss mit Schwerpunkt Software Engineering."
+      ],
+      "ar": [
+        "تخرّجت بتركيز على هندسة البرمجيات."
+      ]
+    },
+    "tags": {
+      "en": "",
+      "de": "",
+      "ar": ""
+    }
+  }
+]

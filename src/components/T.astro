@@ -1,0 +1,22 @@
+---
+/**
+ * Static localized text.
+ *
+ * All three locales are rendered into the HTML and CSS shows the one matching
+ * <html lang>. That keeps every section static Astro with zero hydration — the
+ * page reads completely with JS disabled, and switching language is a single
+ * attribute change rather than a re-render.
+ *
+ * Inactive variants are `display:none`, so assistive tech and find-in-page only
+ * ever see the active language.
+ */
+import { LANGS } from '../i18n';
+
+interface Props {
+  /** One string per locale. */
+  of: Record<string, string>;
+}
+
+const { of } = Astro.props;
+---
+{LANGS.map((l) => <span class="l10n" data-lang={l} set:text={of[l]} />)}

@@ -1,0 +1,44 @@
+---
+import T from './T.astro';
+import SectionHeader from './SectionHeader.astro';
+import { pick } from '../i18n';
+import { EMAIL, SOCIAL_URLS } from '../data/site';
+import CopyEmail from '../islands/CopyEmail.tsx';
+
+const title = pick((d) => d.contactTitle);
+const blurb = pick((d) => d.blurb);
+const emailLabel = pick((d) => d.emailLabel);
+const socials = pick((d) => d.socials);
+
+// CONTENT.md ships '#' placeholders. Only labels with a real URL are rendered -
+// SECTIONS.md is explicit that the Xing pill is dropped rather than shipped as '#'.
+const links = socials.en
+  .filter((s) => SOCIAL_URLS[s.l])
+  .map((s) => ({ label: s.l, href: SOCIAL_URLS[s.l] }));
+---
+
+<section id="contact" class="section contact" aria-labelledby="h-contact">
+  <div class="halo halo-contact" aria-hidden="true"></div>
+
+  <div class="wrap">
+    <SectionHeader id="h-contact" title={title} />
+
+    <p class="blurb settle"><T of={blurb} /></p>
+
+    <div class="email-block settle">
+      <div class="email-label"><T of={emailLabel} /></div>
+      <div class="email-row">
+        <a class="email-link" href={`mailto:${EMAIL}`} dir="ltr">{EMAIL}</a>
+        <CopyEmail client:visible />
+      </div>
+    </div>
+
+    <div class="social-row settle">
+      {links.map((s) => (
+        <a class="social" href={s.href} target="_blank" rel="noopener noreferrer" data-magnet>
+          {s.label}<span class="arrow" aria-hidden="true">↗</span>
+        </a>
+      ))}
+    </div>
+  </div>
+</section>

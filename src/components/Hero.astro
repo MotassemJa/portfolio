@@ -1,0 +1,72 @@
+---
+import { Image } from 'astro:assets';
+import T from './T.astro';
+import { pick, LANGS } from '../i18n';
+import headshot from '../assets/headshot.jpeg';
+
+const avail = pick((d) => d.avail);
+const first = pick((d) => d.first);
+const last = pick((d) => d.last);
+const role = pick((d) => d.role);
+const loc = pick((d) => d.loc);
+const tag = pick((d) => d.tag);
+const ctaWork = pick((d) => d.ctaWork);
+const ctaTalk = pick((d) => d.ctaTalk);
+const stats = pick((d) => d.stats);
+---
+
+<section id="hero" class="hero" aria-label="Intro">
+  <div class="hero-dots" aria-hidden="true"></div>
+  <div class="halo halo-hero" aria-hidden="true"></div>
+
+  <div class="wrap hero-row">
+    <div class="hero-main">
+      <div class="pill">
+        <span class="dot-ok pulse" aria-hidden="true"></span>
+        <span><T of={avail} /></span>
+      </div>
+
+      <h1>
+        <span class="h1-mask"><span><T of={first} /></span></span>
+        <span class="h1-mask"><span><T of={last} /></span></span>
+      </h1>
+
+      <div class="role-row rise d-50">
+        <span class="role-name"><T of={role} /></span>
+        <span class="role-rule" aria-hidden="true"></span>
+        <span class="role-loc mono"><T of={loc} /></span>
+      </div>
+
+      <p class="tagline rise d-62"><T of={tag} /></p>
+
+      <!-- Each locale ships its own stat list; only the active one is displayed. -->
+      <div class="stats rise d-74">
+        {LANGS.map((l) => (
+          <div class="l10n stats" data-lang={l} style="margin-top:0;animation:none">
+            {stats[l].map((s) => (
+              <div>
+                <div class="stat-v mono" dir="ltr">{s.v}</div>
+                <div class="stat-k">{s.k}</div>
+              </div>
+            ))}
+          </div>
+        ))}
+      </div>
+
+      <div class="cta-row rise d-86">
+        <a class="cta cta-primary" href="#work" data-magnet><T of={ctaWork} /></a>
+        <a class="cta cta-secondary" href="#contact" data-magnet><T of={ctaTalk} /></a>
+      </div>
+    </div>
+
+    <div class="hero-aside">
+      <div class="headshot-frame">
+        <div class="headshot-clip">
+          {/* Decorative: the name is already the h1, so an empty alt avoids
+              announcing the same person twice. */}
+          <Image src={headshot} alt="" width={640} height={800} loading="eager" />
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

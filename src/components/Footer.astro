@@ -1,0 +1,14 @@
+---
+import T from './T.astro';
+import { pick } from '../i18n';
+
+const footer = pick((d) => d.footer);
+const top = pick((d) => d.top);
+---
+
+<footer class="site-footer">
+  <div class="wrap footer-inner">
+    <span><T of={footer} /></span>
+    <a href="#top"><T of={top} /></a>
+  </div>
+</footer>

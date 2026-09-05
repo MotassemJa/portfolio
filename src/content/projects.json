@@ -1,1 +1,127 @@
-[]
+[
+  {
+    "id": "ds",
+    "order": 0,
+    "year": "2023 -",
+    "status": {
+      "en": "in production",
+      "de": "in production",
+      "ar": "in production"
+    },
+    "title": {
+      "en": "Web Design System",
+      "de": "Web-Design-System",
+      "ar": "نظام تصميم للويب"
+    },
+    "meta": {
+      "en": "StencilJS · WAI-ARIA · design tokens",
+      "de": "StencilJS · WAI-ARIA · Design-Tokens",
+      "ar": "StencilJS · WAI-ARIA · design tokens"
+    },
+    "desc": {
+      "en": "Accessible, framework-agnostic component library built with a 15-person team - StencilJS web components consumed by Angular and React apps alike.",
+      "de": "Barrierefreie, framework-unabhängige Komponentenbibliothek, gebaut mit einem 15-köpfigen Team - StencilJS-Web-Components für Angular- wie React-Apps.",
+      "ar": "مكتبة مكوّنات ميسّرة ومستقلة عن أطر العمل، بُنيت مع فريق من 15 مطوّرًا - مكوّنات StencilJS تستخدمها تطبيقات Angular وReact على حد سواء."
+    }
+  },
+  {
+    "id": "fb",
+    "order": 1,
+    "year": "2024",
+    "status": {
+      "en": "in production",
+      "de": "in production",
+      "ar": "in production"
+    },
+    "title": {
+      "en": "Feedback Platform",
+      "de": "Feedback-Plattform",
+      "ar": "منصة الملاحظات"
+    },
+    "meta": {
+      "en": "Angular · NestJS · full-stack",
+      "de": "Angular · NestJS · Full-Stack",
+      "ar": "Angular · NestJS · full-stack"
+    },
+    "desc": {
+      "en": "Zero-to-production platform replacing email-based bug reports with one searchable triage dashboard for structured feedback and feature requests.",
+      "de": "Von null bis Produktion: ersetzt E-Mail-Bugreports durch ein durchsuchbares Triage-Dashboard für strukturiertes Feedback und Feature-Wünsche.",
+      "ar": "منصة من الصفر إلى الإنتاج تستبدل بلاغات الأخطاء عبر البريد بلوحة تحكم واحدة قابلة للبحث للملاحظات المنظمة وطلبات الميزات."
+    }
+  },
+  {
+    "id": "ci",
+    "order": 2,
+    "year": "2023",
+    "status": {
+      "en": "in production",
+      "de": "in production",
+      "ar": "in production"
+    },
+    "title": {
+      "en": "CI/CD Pipeline",
+      "de": "CI/CD-Pipeline",
+      "ar": "خط CI/CD"
+    },
+    "meta": {
+      "en": "GitHub Actions · Docker · Kubernetes",
+      "de": "GitHub Actions · Docker · Kubernetes",
+      "ar": "GitHub Actions · Docker · Kubernetes"
+    },
+    "desc": {
+      "en": "Automated test, build and container-deploy stages - release time down from 35+ to under 15 minutes, with zero-downtime rollouts.",
+      "de": "Automatisierte Test-, Build- und Deploy-Stufen - Release-Zeit von 35+ auf unter 15 Minuten, Rollouts ohne Ausfallzeit.",
+      "ar": "مراحل اختبار وبناء ونشر مؤتمتة بالكامل - زمن الإصدار انخفض من 35+ إلى أقل من 15 دقيقة، مع نشر دون توقف."
+    }
+  },
+  {
+    "id": "ws",
+    "order": 3,
+    "year": "2022",
+    "status": {
+      "en": "shipped",
+      "de": "shipped",
+      "ar": "shipped"
+    },
+    "title": {
+      "en": "Wealth Advisory SaaS",
+      "de": "Wealth-Advisory-SaaS",
+      "ar": "منصة إدارة الثروات"
+    },
+    "meta": {
+      "en": "Angular 14 · Nx monorepo",
+      "de": "Angular 14 · Nx-Monorepo",
+      "ar": "Angular 14 · Nx monorepo"
+    },
+    "desc": {
+      "en": "Private-banking platform: scalable monorepo architecture, user stories translated into shippable increments, defect-free delivery.",
+      "de": "Private-Banking-Plattform: skalierbare Monorepo-Architektur, User Stories in lieferbare Inkremente übersetzt, fehlerfreie Auslieferung.",
+      "ar": "منصة للخدمات المصرفية الخاصة: بنية monorepo قابلة للتوسع، وقصص مستخدم تتحول إلى مهام قابلة للتسليم."
+    }
+  },
+  {
+    "id": "ac",
+    "order": 4,
+    "year": "2020",
+    "status": {
+      "en": "shipped",
+      "de": "shipped",
+      "ar": "shipped"
+    },
+    "title": {
+      "en": "Access Control App",
+      "de": "Zutrittskontroll-App",
+      "ar": "تطبيق التحكم بالدخول"
+    },
+    "meta": {
+      "en": "Kotlin · Android",
+      "de": "Kotlin · Android",
+      "ar": "Kotlin · Android"
+    },
+    "desc": {
+      "en": "Digital access control with role-based permissions and time-based activation - architecture and implementation led end to end.",
+      "de": "Digitale Zutrittskontrolle mit rollenbasierten Berechtigungen und zeitgesteuerter Aktivierung - Architektur und Umsetzung durchgängig verantwortet.",
+      "ar": "تحكم رقمي بالدخول بصلاحيات حسب الأدوار وتفعيل مؤقّت - قُدت البنية والتنفيذ من البداية للنهاية."
+    }
+  }
+]

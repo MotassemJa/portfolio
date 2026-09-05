@@ -1,0 +1,41 @@
+---
+import T from './T.astro';
+import SectionHeader from './SectionHeader.astro';
+import { pick, LANGS } from '../i18n';
+
+const title = pick((d) => d.aboutTitle);
+const p1 = pick((d) => d.p1);
+const p2 = pick((d) => d.p2);
+const avail = pick((d) => d.avail);
+const facts = pick((d) => d.facts);
+---
+
+<section id="about" class="section" aria-labelledby="h-about">
+  <div class="wrap">
+    <SectionHeader id="h-about" title={title} />
+
+    <div class="about-grid">
+      <div class="about-prose settle">
+        <p><T of={p1} /></p>
+        <p><T of={p2} /></p>
+      </div>
+
+      <div class="facts settle">
+        {LANGS.map((l) => (
+          <div class="l10n" data-lang={l}>
+            {facts[l].map((f) => (
+              <div class="fact-row">
+                <span class="fact-k mono">{f.k}</span>
+                <span class="fact-v">{f.v}</span>
+              </div>
+            ))}
+          </div>
+        ))}
+        <div class="avail-row">
+          <span class="dot-ok" aria-hidden="true"></span>
+          <span><T of={avail} /></span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

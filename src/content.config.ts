@@ -31,7 +31,9 @@ const experience = defineCollection({
       de: z.array(z.string()),
       ar: z.array(z.string()),
     }),
-    tags: z.string().default(''),
+    // CONTENT.md translates these per locale ("Unit testing" / "Unit-Tests" / "اختبارات"),
+    // so this widens the starter's plain z.string() rather than dropping the DE/AR copy.
+    tags: localized,
   }),
 });
 

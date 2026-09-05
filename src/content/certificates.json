@@ -1,1 +1,72 @@
-[]
+[
+  {
+    "id": "introduction-to-agent-skills",
+    "order": 0,
+    "name": "Introduction to Agent Skills",
+    "issuer": "Anthropic",
+    "field": "ai",
+    "pinned": false,
+    "date": {
+      "en": "Jul 2026",
+      "de": "Juli 2026",
+      "ar": "يوليو 2026"
+    },
+    "url": "https://verify.skilljar.com/c/4qaxxpf7h4vh"
+  },
+  {
+    "id": "claude-code-101",
+    "order": 1,
+    "name": "Claude Code 101",
+    "issuer": "Anthropic",
+    "field": "ai",
+    "pinned": false,
+    "date": {
+      "en": "Jul 2026",
+      "de": "Juli 2026",
+      "ar": "يوليو 2026"
+    },
+    "url": "https://verify.skilljar.com/c/rkm6u87b7w72"
+  },
+  {
+    "id": "ai-fluency-framework-foundations",
+    "order": 2,
+    "name": "AI Fluency: Framework & Foundations",
+    "issuer": "Anthropic",
+    "field": "ai",
+    "pinned": true,
+    "date": {
+      "en": "Jul 2026",
+      "de": "Juli 2026",
+      "ar": "يوليو 2026"
+    },
+    "url": "https://verify.skilljar.com/c/qa8vqe8escq2"
+  },
+  {
+    "id": "oracle-database-sql-certified-expert",
+    "order": 3,
+    "name": "Oracle Database SQL Certified Expert",
+    "issuer": "Oracle",
+    "field": "db",
+    "pinned": true,
+    "date": {
+      "en": "Nov 2012",
+      "de": "Nov. 2012",
+      "ar": "نوفمبر 2012"
+    },
+    "url": "https://onedrive.live.com/view.aspx?cid=3D1D82ADB2F0CFBD&resid=3D1D82ADB2F0CFBD%21145&app=WordPdf"
+  },
+  {
+    "id": "oracle-pl-sql-developer-certified-associate",
+    "order": 4,
+    "name": "Oracle PL/SQL Developer Certified Associate",
+    "issuer": "Oracle",
+    "field": "db",
+    "pinned": false,
+    "date": {
+      "en": "Apr 2013",
+      "de": "Apr. 2013",
+      "ar": "أبريل 2013"
+    },
+    "url": "https://onedrive.live.com/view.aspx?cid=3D1D82ADB2F0CFBD&resid=3D1D82ADB2F0CFBD%21146&app=WordPdf"
+  }
+]

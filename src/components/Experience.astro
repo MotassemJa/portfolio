@@ -1,0 +1,81 @@
+---
+import { getCollection } from 'astro:content';
+import T from './T.astro';
+import SectionHeader from './SectionHeader.astro';
+import { pick, LANGS } from '../i18n';
+import { EXP_ICONS } from '../data/site';
+
+const title = pick((d) => d.expTitle);
+const kinds = ['work', 'internship', 'education'] as const;
+const kindLabels = Object.fromEntries(
+  kinds.map((k) => [k, pick((d) => d.expKinds[k])])
+) as Record<string, Record<string, string>>;
+
+const entries = (await getCollection('experience')).sort((a, b) => a.data.order - b.data.order);
+---
+
+<section id="experience" class="section" aria-labelledby="h-exp">
+  <div class="wrap">
+    <SectionHeader id="h-exp" title={title} variant="legend" />
+
+    <div class="legend">
+      {kinds.map((k) => (
+        <span class="legend-item">
+          <span class="marker-box" aria-hidden="true">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                 stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+              <path d={EXP_ICONS[k]} />
+            </svg>
+          </span>
+          <T of={kindLabels[k]} />
+        </span>
+      ))}
+    </div>
+
+    <ul class="timeline">
+      <span class="tl-rail" aria-hidden="true"></span>
+      <span class="tl-rail-accent" aria-hidden="true"></span>
+
+      {entries.map((e) => {
+        const kind = e.data.kind;
+        return (
+          <li class={`tl-item settle${e.data.current ? ' current' : ''}`}>
+            {/* role="img" + label: the icon is never the only signal of the kind. */}
+            {LANGS.map((l) => (
+              <span
+                class="l10n tl-marker"
+                data-lang={l}
+                role="img"
+                aria-label={kindLabels[kind][l]}
+              >
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                     stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+                  <path d={EXP_ICONS[kind]} />
+                </svg>
+              </span>
+            ))}
+
+            <div class="tl-period mono" dir="ltr"><T of={e.data.period} /></div>
+            <h3><T of={e.data.role} /></h3>
+            <div class="tl-co"><T of={e.data.company} /></div>
+
+            {LANGS.map((l) => (
+              <ul class="l10n tl-points" data-lang={l}>
+                {e.data.points[l].map((pt) => (
+                  <li>
+                    <span class="tl-bullet" aria-hidden="true"></span>
+                    <span>{pt}</span>
+                  </li>
+                ))}
+              </ul>
+            ))}
+
+            {e.data.tags.en && (
+              <div class="tl-tags mono" dir="ltr"><T of={e.data.tags} /></div>
+            )}
+          </li>
+        );
+      })}
+    </ul>
+  </div>
+</section>

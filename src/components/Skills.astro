@@ -1,0 +1,56 @@
+---
+import T from './T.astro';
+import SectionHeader from './SectionHeader.astro';
+import { pick, LANGS } from '../i18n';
+import SignalDemo from '../islands/demos/SignalDemo.tsx';
+import TokenDemo from '../islands/demos/TokenDemo.tsx';
+import LocaleDemo from '../islands/demos/LocaleDemo.tsx';
+import PipelineDemo from '../islands/demos/PipelineDemo.tsx';
+
+const title = pick((d) => d.skillsTitle);
+const intro = pick((d) => d.skillsIntro);
+const alsoLabel = pick((d) => d.alsoLabel);
+const also = pick((d) => d.also);
+
+const cards = [
+  { h: pick((d) => d.g1), tags: pick((d) => d.g1tags), hint: pick((d) => d.demo1Hint) },
+  { h: pick((d) => d.g2), tags: pick((d) => d.g2tags), hint: pick((d) => d.demo2Hint) },
+  { h: pick((d) => d.g3), tags: pick((d) => d.g3tags), hint: pick((d) => d.i18nHint) },
+  { h: pick((d) => d.g4), tags: pick((d) => d.g4tags), hint: null },
+];
+---
+
+<section id="skills" class="section" aria-labelledby="h-skills">
+  <div class="wrap">
+    <SectionHeader id="h-skills" title={title} variant="tight" />
+    <p class="skills-intro"><T of={intro} /></p>
+
+    <div class="cards-grid">
+      {cards.map((c, i) => (
+        <div class="card skill-card settle" data-spot>
+          <div class="card-spot" aria-hidden="true"></div>
+          <div>
+            <h3><T of={c.h} /></h3>
+            <p class="card-tags mono" dir="ltr"><T of={c.tags} /></p>
+          </div>
+
+          {i === 0 && <SignalDemo client:visible />}
+          {i === 1 && <TokenDemo client:visible />}
+          {i === 2 && <LocaleDemo client:visible />}
+          {i === 3 && <PipelineDemo client:visible />}
+
+          {c.hint && <p class="card-hint"><T of={c.hint} /></p>}
+        </div>
+      ))}
+    </div>
+
+    <div class="also">
+      <h3><T of={alsoLabel} /></h3>
+      {LANGS.map((l) => (
+        <ul class="l10n chips" data-lang={l}>
+          {also[l].split(' · ').map((chip) => <li>{chip}</li>)}
+        </ul>
+      ))}
+    </div>
+  </div>
+</section>

@@ -1,0 +1,52 @@
+---
+import { getCollection } from 'astro:content';
+import T from './T.astro';
+import SectionHeader from './SectionHeader.astro';
+import { pick } from '../i18n';
+import { CERT_FIELD_ORDER } from '../data/site';
+
+const title = pick((d) => d.certTitle);
+const verify = pick((d) => d.certVerify);
+
+const all = (await getCollection('certificates')).sort((a, b) => a.data.order - b.data.order);
+
+// Pinned first inside each group, groups in the documented db / ai / other order.
+const groups = CERT_FIELD_ORDER.map((field) => ({
+  field,
+  label: pick((d) => d.certFields[field]),
+  items: all
+    .filter((c) => c.data.field === field)
+    .sort((a, b) => Number(b.data.pinned) - Number(a.data.pinned)),
+})).filter((g) => g.items.length > 0);
+---
+
+<section id="certs" class="section" aria-labelledby="h-certs">
+  <div class="wrap">
+    <SectionHeader id="h-certs" title={title} />
+
+    {groups.map((g) => (
+      <>
+        <div class="cert-group-head">
+          <span><T of={g.label} /></span>
+          <span class="cert-group-rule" aria-hidden="true"></span>
+        </div>
+        <ul class="cert-grid">
+          {g.items.map((c) => (
+            <li class={`card cert-card settle${c.data.pinned ? ' pinned' : ''}`} data-spot>
+              <div class="card-spot" aria-hidden="true"></div>
+              <div class="cert-top mono" dir="ltr">
+                {/* Names, issuers and URLs are never translated. */}
+                <span class="issuer">{c.data.issuer}</span>
+                <span class="date"><T of={c.data.date} /></span>
+              </div>
+              <h3>{c.data.name}</h3>
+              <a class="verify mono" href={c.data.url} target="_blank" rel="noopener noreferrer">
+                <T of={verify} /><span aria-hidden="true">↗</span>
+              </a>
+            </li>
+          ))}
+        </ul>
+      </>
+    ))}
+  </div>
+</section>

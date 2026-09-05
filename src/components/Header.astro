@@ -1,0 +1,26 @@
+---
+import T from './T.astro';
+import { pick } from '../i18n';
+import { NAV_IDS } from '../data/site';
+import HeaderControls from '../islands/HeaderControls.tsx';
+
+const nav = NAV_IDS.map((id) => ({ id, href: `#${id}`, label: pick((d) => d.nav[id]) }));
+---
+
+<header class="site-header">
+  <div class="wrap header-inner">
+    <a class="wordmark mono" href="#top" dir="ltr">mja<span>()</span></a>
+
+    <!-- Static nav: it must work with JS off. The island only adds aria-current
+         as you scroll, so this stays plain markup. -->
+    <nav class="nav desktop-only" aria-label="Primary" data-nav>
+      {nav.map((n) => (
+        <a class="nav-link" href={n.href} data-nav-link={n.id}>
+          <T of={n.label} />
+        </a>
+      ))}
+    </nav>
+
+    <HeaderControls client:load />
+  </div>
+</header>

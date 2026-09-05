@@ -1,0 +1,19 @@
+---
+import T from './T.astro';
+
+interface Props {
+  id: string;
+  title: Record<string, string>;
+  /** Spacing variant below the header row. */
+  variant?: 'default' | 'tight' | 'legend';
+}
+
+const { id, title, variant = 'default' } = Astro.props;
+const cls =
+  variant === 'tight' ? 'sec-head tight' : variant === 'legend' ? 'sec-head legend-gap' : 'sec-head';
+---
+
+<div class={cls}>
+  <h2 class="sec-title settle" id={id}><T of={title} /></h2>
+  <span class="sec-rule" aria-hidden="true"></span>
+</div>
