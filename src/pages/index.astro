@@ -1,12 +1,12 @@
 ---
-
+import { withBase } from '../lib/paths';
 ---
 
 <html lang="en">
 	<head>
 		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href={`${import.meta.env.BASE_URL}favicon.svg`} />
-		<link rel="icon" href={`${import.meta.env.BASE_URL}favicon.ico`} />
+		<link rel="icon" type="image/svg+xml" href={withBase('favicon.svg')} />
+		<link rel="icon" href={withBase('favicon.ico')} />
 		<meta name="viewport" content="width=device-width" />
 		<meta name="generator" content={Astro.generator} />
 		<title>Astro</title>
