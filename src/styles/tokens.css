@@ -14,6 +14,19 @@
    range. Dark theme was already fine at 5.50:1 and is untouched.
 */
 
+/* Everything below sits in the `base` layer.
+
+   app.css puts its component rules in @layer components, and unlayered
+   declarations beat every layered one regardless of specificity - so while this
+   file was unlayered, its bare `a { color: var(--accent) }` overrode every
+   link colour in app.css. That turned the hero CTA into accent-on-gradient and
+   the skip link into accent-on-accent, i.e. invisible. Declaring the layer here
+   restores the intended order: base < layout < components < utilities.
+
+   No values are changed by this wrapper. */
+@layer base {
+
+
 :root{color-scheme:dark;--hue:125;
 --bg:oklch(0.163 0.012 var(--hue));--bg2:oklch(0.205 0.014 var(--hue));--bg3:oklch(0.262 0.016 var(--hue));
 --fg:oklch(0.965 0.006 var(--hue));--fg2:oklch(0.795 0.009 var(--hue));--fg3:oklch(0.63 0.012 var(--hue));
@@ -84,4 +97,5 @@ dialog::backdrop{background:oklch(0.12 0.02 125 / 0.5);backdrop-filter:blur(6px)
 .visually-hidden{
   position:absolute; width:1px; height:1px; padding:0; margin:-1px;
   overflow:hidden; clip-path:inset(50%); white-space:nowrap; border:0;
+}
 }
